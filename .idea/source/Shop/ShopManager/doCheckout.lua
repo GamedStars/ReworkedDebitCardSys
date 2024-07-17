@@ -1,3 +1,6 @@
+require("ShopManager/doPurchase")
+monitor = peripheral.find("monitor")
+
 function doCheckout()
 
     monitor.clear()

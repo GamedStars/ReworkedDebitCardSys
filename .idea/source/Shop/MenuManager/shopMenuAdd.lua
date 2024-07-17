@@ -1,4 +1,4 @@
-require(checkMenuDupes)
+require("MenuManager/checkMenuDupes")
 
 function shopMenuAdd()
     print(string.rep("-",51))
@@ -54,9 +54,6 @@ function shopMenuAdd()
         end
         if choice == "n" then
             run = false
-            print(string.rep("-",51))
-            print("Closing menuadd")
-            print(string.rep("-",51))
         end
     end
 end

@@ -1,3 +1,5 @@
+monitor = peripheral.find("monitor")
+
 function monitorUpdate()
     monitor.clear()
     monitor.setCursorPos(1,1)

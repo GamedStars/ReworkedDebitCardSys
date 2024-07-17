@@ -1,5 +1,13 @@
+require("ShopManager/monitorUpdate")
+require("ShopManager/clearAll")
+require("ShopManager/doCheckout")
+require("Helpers/split")
+require("Helpers/edit")
+monitor = peripheral.find("monitor")
 
 function startService()
+
+    -- Counts the amount of lines in ShopMenu.txt
     file = io.open("ShopMenu.txt","r")
     line = file:read()
     counter1 = 2
@@ -8,6 +16,7 @@ function startService()
         line = file:read()
     end
     file:close()
+
     while true do
         monitorUpdate()
         event, side, x, y = os.pullEvent("monitor_touch")
