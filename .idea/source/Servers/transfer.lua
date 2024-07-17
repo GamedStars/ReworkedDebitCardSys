@@ -1,5 +1,5 @@
-require("split.lua")
-require("edit.lua")
+require("split")
+require("edit")
 
 function transfer(senderID, recipient, amount, phoneID)
 

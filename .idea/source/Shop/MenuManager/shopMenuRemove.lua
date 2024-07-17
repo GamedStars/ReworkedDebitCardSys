@@ -1,4 +1,4 @@
-function shopListRemove()
+function shopMenuRemove()
     print(string.rep("-",51))
     print("Removing Items from the shop")
     file = io.open("ShopMenu.txt", "r")

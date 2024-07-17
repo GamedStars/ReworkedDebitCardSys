@@ -1,4 +1,4 @@
-require("split.lua")
+require("split")
 
 modem = peripheral.find("modem",rednet.open)
 

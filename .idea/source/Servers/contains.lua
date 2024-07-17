@@ -1,4 +1,4 @@
-require("split.lua")
+require("split")
 
 function contains(name)
     file = io.open("disk/DebitCardInfo.txt", "r")
