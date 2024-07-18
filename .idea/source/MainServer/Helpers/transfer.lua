@@ -3,7 +3,7 @@ require("edit")
 
 function transfer(senderID, recipient, amount, phoneID)
 
-    if amount <= 0 then
+    if tonumber(amount) <= 0 then
         rednet.send(phoneID, "You cannot transfer a non-positive amount of money", "PhoneQueryResult")
         return "Someone tried to send a negative amount to "..recipient
     end
@@ -57,11 +57,13 @@ function transfer(senderID, recipient, amount, phoneID)
         --file:close()
 
         -- Replaces the information with new information
-        edit(senderIndex, senderInfo[1]..","..senderInfo[2]..",".. senderNewBalance)
-        edit(recipientIndex, recipientInfo[1]..","..recipientInfo[2]..",".. recipientNewBalance)
-        --senderNewBalance = tostring(tonumber(senderInfo[3]) - tonumber(amount))
+        senderNewBalance = tostring(tonumber(senderInfo[3]) - tonumber(amount))
+        recipientNewBalance = tostring(tonumber(recipientInfo[3]) + tonumber(amount))
+        edit(senderIndex, senderInfo[1]..","..senderInfo[2]..","..senderNewBalance)
+        edit(recipientIndex, recipientInfo[1]..","..recipientInfo[2]..","..recipientNewBalance)
+
         --fileContent[senderIndex] = senderInfo[1]..","..senderInfo[2]..",".. senderNewBalance
-        --recipientNewBalance = tostring(tonumber(recipientInfo[3]) + tonumber(amount))
+
         --fileContent[recipientIndex] = recipientInfo[1]..","..recipientInfo[2]..",".. recipientNewBalance
 
         -- Writes back all the information back into the disk
@@ -72,6 +74,6 @@ function transfer(senderID, recipient, amount, phoneID)
         --file:close()
         rednet.send(phoneID, "Successfully transfered "..tostring(amount).." to "..tostring(recipient), "PhoneQueryResult")
 
-        return "Transfered "..amount.." to "..tostring(recipient)
+        return "Transfered "..tostring(amount).." to "..tostring(recipient)
     end
 end
