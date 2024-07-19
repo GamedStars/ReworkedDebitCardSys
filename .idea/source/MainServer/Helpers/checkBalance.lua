@@ -1,4 +1,4 @@
-require("split")
+require("Helpers/split")
 
 modem = peripheral.find("modem",rednet.open)
 
@@ -11,6 +11,8 @@ function checkBalance(clientID, phoneID)
             info = split(line)
             if tostring(info[2]) == clientID then
                 break
+            else
+                info = nil
             end
         end
     end

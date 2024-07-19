@@ -1,4 +1,4 @@
-require("split")
+require("Helpers/split")
 
 function newShop(phoneID, shopID)
     file = io.open("disk/DebitCardInfo.txt","r")

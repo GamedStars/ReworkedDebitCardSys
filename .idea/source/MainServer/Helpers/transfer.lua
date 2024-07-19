@@ -1,5 +1,5 @@
-require("split")
-require("edit")
+require("Helpers/split")
+require("Helpers/edit")
 
 function transfer(senderID, recipient, amount, phoneID)
 
