@@ -1,9 +1,17 @@
 require("Packages/MenuManager/checkMenuDupes")
+require("Packages/ChestManager/findOutputChest")
 path = "Packages/DataFiles/"
 
 function shopMenuWrite()
     print(string.rep("-",51))
     print("Creating a shop menu")
+
+    outputChest = findOutputChest()
+    if outputChest == nil then
+        error("Could not find output chest, please set the output chest using the ShopClient")
+        return nil
+    end
+
     file = io.open(path.."ShopMenu.txt","w")
     file:close()
     file = io.open(path.."ItemData.txt","w")

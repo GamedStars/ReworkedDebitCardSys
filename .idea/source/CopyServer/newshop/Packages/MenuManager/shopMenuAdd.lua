@@ -1,9 +1,17 @@
 require("Packages/MenuManager/checkMenuDupes")
+require("Packages/ChestManager/findOutputChest")
 path = "Packages/DataFiles/"
 
 function shopMenuAdd()
     print(string.rep("-",51))
     print("Adding Items to the shop")
+
+    outputChest = findOutputChest()
+    if outputChest == nil then
+        error("Could not find output chest, please set the output chest using the ShopClient")
+        return nil
+    end
+
     run = true
     while run do
         print(string.rep("-",51))

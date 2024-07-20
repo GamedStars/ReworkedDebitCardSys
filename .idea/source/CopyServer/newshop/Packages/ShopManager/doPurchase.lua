@@ -24,11 +24,11 @@ function doPurchase(total)
     id, message = rednet.receive("PhoneQueryResult", 10)
 
     if message == nil then
-        print("There has been a error in your payment; Contact the owner of the shop or GamedStars")
         monitor.clear()
         monitor.setBackgroundColor(colors.red)
         monitor.clear()
         os.sleep(2)
+        error("There has been a error in your payment, please contact a moderator")
     elseif string.sub(message,1,12) == "Successfully" then
         print("Payment Successful!")
         clearAll()

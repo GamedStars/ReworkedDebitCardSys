@@ -3,11 +3,10 @@ path = "Packages/DataFiles/"
 function push(itemnumber, amount)
 
     -- Gets the outputChest
-    file = io.open(path.."ChestInfo.txt","r")
-    for line in file:lines() do
-        if line ~= nil then
-            outputChest = peripheral.wrap(line)
-        end
+    outputChest = findOutputChest()
+    if outputChest == nil then
+        error("Could not find output chest, please set the output chest using the ShopClient")
+        return nil
     end
 
     -- Gets all the storageChests

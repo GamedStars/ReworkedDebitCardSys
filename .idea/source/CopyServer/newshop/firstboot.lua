@@ -25,11 +25,8 @@ if protocol == "FoundPhoneID" then
     file:write(message)
     file:close()
     print("Shop created successfully!")
-    result = setOutputChest()
-    while not result do
-        print("Trying again...")
-        result = setOutputChest()
-    end
+    print("Now that you have created your shop, you will need to setup your shop by setting up an output chest and creating your menu!")
+    print("All of this can be done via the ShopClient")
 else
     print(message)
 end

@@ -1,17 +1,16 @@
 require("Packages/Helpers/split")
+require("Packages/ChestManager/findOutputChest")
 
 path = "Packages/DataFiles/"
 
 function checkStock()
 
     -- Gets the outputChest
-    file = io.open(path.."ChestInfo.txt","r")
-    for line in file:lines() do
-        if line ~= nil then
-            outputChest = peripheral.wrap(line)
-        end
+    outputChest = findOutputChest()
+    if outputChest == nil then
+        error("Could not find output chest, please set the output chest using the ShopClient")
+        return nil
     end
-    file:close()
 
     -- Gets how much we are selling of each item
     local quantity = {}

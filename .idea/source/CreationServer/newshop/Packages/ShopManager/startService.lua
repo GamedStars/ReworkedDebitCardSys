@@ -10,7 +10,7 @@ function startService()
 
     file = io.open(path.."ShopMenu.txt","r")
     if file:lines() == nil then
-        print("You do not have a menu setup! Please use the ShopClient to create a menu")
+        error("You do not have a menu setup! Please use the ShopClient to create a menu")
         return
     end
 

@@ -22,7 +22,7 @@ while run do
     print()
 
     while tonumber(choice) > 6 or tonumber(choice) < 1 do
-        io.write("Your choice must be (1 to 4 inclusive) ")
+        io.write("Your choice must be (1 to 6 inclusive) ")
         choice = string.lower(io.read())
     end
 
